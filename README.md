@@ -1,5 +1,5 @@
 # AI_Linear_Regression
-HW project ( 2024, ML course). With all sorts of linear models and FastApi service.
+HW project I ( 2024, ML course).
 
 ## Результаты работы
 
