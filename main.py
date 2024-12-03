@@ -146,11 +146,10 @@ def preprocessing(df):
     df['name'] = df['name'].apply(handle_name)
 
     # Приводим значения к числовым
-    df['mileage'] = df['mileage'].apply(handle_mileage).astype('float64')
-    df['engine'] = df['engine'].apply(handle_engine).astype('float64')
-    df['max_power'] = df['max_power'].apply(handle_max_power).astype('float64')
-    df['torque'] = df['torque'].apply(handle_torque).astype('float64')
-
+    df['mileage'] = df['mileage'].apply(lambda x: handle_mileage(x) if not pd.isnull(x) else np.nan)
+    df['engine'] = df['engine'].apply(lambda x: handle_engine(x) if not pd.isnull(x) else np.nan)
+    df['max_power'] = df['max_power'].apply(lambda x: handle_max_power(x) if not pd.isnull(x) else np.nan)
+    df['torque'] = df['torque'].apply(lambda x: handle_torque(x) if not pd.isnull(x) else np.nan)
 
     # Заполняем пропуски медианой
     df['mileage'].fillna(data['mileage_median'], inplace=True)
