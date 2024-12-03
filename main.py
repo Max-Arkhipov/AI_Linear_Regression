@@ -119,25 +119,6 @@ def handle_name(x: str):
     else:
         return np.nan
 
-
-def get_value(x: str):
-    '''Фильрует все не-числовые значения'''
-    if not pd.notnull(x):
-        return None
-    value = re.search(r'\d+.\d+|\d+', x)
-    if not value:
-        return None
-    return float(value.group())
-
-
-def get_car(x: str):
-    '''Возвращает первое слово из столбца name'''
-    value = re.findall(r'\w+', x)
-    if not value:
-        return None
-    return value[0]
-
-
 def preprocessing(df):
     '''
     Препроцессинг поступающих данных.
